@@ -2,19 +2,5 @@ services:
   web:
     build: .
     restart: unless-stopped
-    networks:
-      - proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.olliecross.rule=Host(`olliecross.com`) || Host(`www.olliecross.com`)"
-      - "traefik.http.routers.olliecross.entrypoints=websecure"
-      - "traefik.http.routers.olliecross.tls.certresolver=letsencrypt"
-      - "traefik.http.middlewares.olliecross-www.redirectregex.regex=^https://www\\.olliecross\\.com/(.*)"
-      - "traefik.http.middlewares.olliecross-www.redirectregex.replacement=https://olliecross.com/$${1}"
-      - "traefik.http.middlewares.olliecross-www.redirectregex.permanent=true"
-      - "traefik.http.routers.olliecross.middlewares=olliecross-www"
-      - "traefik.http.services.olliecross.loadbalancer.server.port=80"
-
-networks:
-  proxy:
-    external: true
+    ports:
+      - "127.0.0.1:80:80"

@@ -15,4 +15,24 @@ Personal portfolio website for OllieCross, a multidisciplinary creative technolo
 
 ## Stack
 
-Single-page HTML/CSS/JS - no build step, no dependencies.
+Single-page HTML/CSS/JS - no build step, no dependencies. Served via nginx.
+
+## Deployment
+
+The site runs on a separate host (`<WEB_HOST>`) behind a Traefik reverse proxy (`<TRAEFIK_HOST>`). Traefik handles TLS termination and forwards plain HTTP to the nginx container.
+
+### On the web host
+
+```bash
+docker compose up -d --build
+```
+
+nginx listens on port 80, bound to localhost only. Traefik reaches it over the LAN.
+
+### On the Traefik host
+
+Add the router, middleware, and service block from `dynamic_conf.yml` to your existing Traefik dynamic config. No restart needed - Traefik picks up the change live.
+
+```text
+Client -> 443 HTTPS (Traefik, TLS) -> <WEB_HOST>:80 (nginx, plain HTTP)
+```

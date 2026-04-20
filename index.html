@@ -137,10 +137,19 @@
       object-fit: contain;
       opacity: 0.7;
       transition: opacity 0.2s;
+      transition: height 0.2s;
     }
-    .logo-slot img:hover { opacity: 1; }
-    .logo-slot img[src="logos/logo6.png"],
-    .logo-slot img[src="logos/logo7.png"] { height: 77px; }
+    .logo-slot img:hover { opacity: 1; height: 100px}
+    .logo-slot img[src="logos/logo6.png"] { height: 110px; }
+    .logo-slot img[src="logos/logo7.png"] { height: 110px; }
+    .logo-slot img[src="logos/logo2.png"] { height: 90px; }
+    .logo-slot img[src="logos/logo12.png"] { height: 90px; }
+    .logo-slot img[src="logos/logo17.png"] { height: 50px; }
+    .logo-slot img[src="logos/logo6.png"]:hover,
+    .logo-slot img[src="logos/logo7.png"]:hover { height: 120px; }
+    .logo-slot img[src="logos/logo2.png"]:hover,
+    .logo-slot img[src="logos/logo12.png"]:hover,
+    .logo-slot img[src="logos/logo17.png"]:hover { height: 100px; }
 
     @media (prefers-reduced-motion: reduce) {
       .marquee-track { animation: none; }
@@ -438,6 +447,7 @@
     .pill-r { border-color: var(--red);    color: var(--red);    }
     .pill-c { border-color: var(--cyan);   color: var(--cyan);   }
     .pill-y { border-color: var(--yellow); color: var(--yellow); }
+    .pill-w { border-color: var(--white);  color: var(--white);  }
 
     .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 
@@ -808,6 +818,7 @@
       transition: border-color 0.18s;
       width: 100%;
       -webkit-appearance: none;
+      appearance: none;
       border-radius: 0;
     }
     .fg input:focus,
@@ -930,7 +941,7 @@
     </h1>
 
     <p class="hero-sub">
-      Lighting director, visual artist, stage engineer, developer<br>
+      Lighting director, visual artist, stage designer, software developer<br>
     </p>
 
     <div class="hero-pills" role="list" aria-label="Services offered">
@@ -939,7 +950,7 @@
       <span class="pill pill-c" role="listitem">VJ / Visuals</span>
       <span class="pill pill-y" role="listitem">Stage Design</span>
       <span class="pill pill-y" role="listitem">Stage Plotting</span>
-      <span class="pill pill-c" role="listitem">IT &amp; Dev</span>
+      <span class="pill pill-w" role="listitem">IT &amp; Dev</span>
     </div>
 
     <div class="hero-actions">
@@ -989,12 +1000,13 @@
 
       <div class="about-text">
         <p>
-          OllieCross is a multidisciplinary creative technologist working at the intersection
-          of light, motion, and code. From intimate club nights to festival productions.
-          every project gets the same precision, artistry, and technical rigour.
+          OllieCross is a creative technologist working at the intersection
+          of light, visual, and code and everything between. From intimate club 
+          nights to festival productions. every project gets the same precision,
+          artistry, and technical expertise.
         </p>
         <p>
-          Deep expertise across lighting direction, live visuals, stage engineering and IT
+          Deep knowledge across lighting direction, live visuals, stage engineering and software 
           development gives a holistic view of production: not just how individual systems
           work, but how they interact and reinforce each other.
         </p>

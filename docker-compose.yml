@@ -4,3 +4,16 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+    volumes:
+      - nginx_logs:/var/log/nginx
+
+  tracker:
+    build: ./tracker
+    restart: unless-stopped
+    volumes:
+      - nginx_logs:/var/log/nginx:ro
+      - visitor_data:/data
+
+volumes:
+  nginx_logs:
+  visitor_data:
